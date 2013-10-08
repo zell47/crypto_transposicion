@@ -11,8 +11,9 @@
 
 void main()
 {
-	char string[MAX],string2[MAX],string3[MAX],caracter;
-	int i=0,j=0,k=0;
+	char string[MAX],string2[MAX],string3[MAX];
+	char c;
+	int i=0,j=0,per=0;
 	int ancho,pos,op;
 	printf("Encriptacion por transposicion\n");
 	printf("Que deseas hacer?\n");
@@ -23,30 +24,35 @@ void main()
 	if (op==1){
 		printf("Letras a encriptar:");
 		gets(string);
-		printf("%s\n",string);
-		for (j=0;caracter !='32' || caracter!='0';j++){
-			caracter = string[j];
-			if (caracter !='32'){
-				string3[k] = caracter;
-				k++;
-			}
-		}
-		string3[i]='\0';
-		printf("%s\n",string3);
-		ancho=strlen(string3);
-		while (i!=ancho){
-			pos=0;
-			printf("Dime la posicion de la letra %d: ",i+1);
+		strcpy(string2,string);
+		ancho=strlen(string);
+		printf("Periodo: ");
+		scanf("%d",&per);
+
+		int v[per];
+
+		while (j!=per){
+			printf("Dime la posicion de la letra %d: ",j+1);
 			scanf("%d",&pos);
-			string2[i] = string3[pos-1];
-			i++;
+			v[j] = pos;
+			j++;
 		}
-		if (i==ancho){
-			string2[i]='\0';
+		//for (j=0; j<per; j++) printf("v[%1d]=%d\n",j,v[j]); Mostrar Vector de Posicion
+		strcpy(string,string2);
+		//printf("%s\n",string);
+		//printf("Ancho %d Per %d",ancho,per);
+		while (i<ancho){
+			pos=0;
+			for (j=0; j<per; j++){
+				pos = v[j];
+				c = string[pos-1+i];
+				printf("%c", c);
+			}
+			i=i+per;
 		}
-		printf("%s\n",string2);
+		//string3[i]='\0';
+		//printf("%s\n",string2);
+		//puts(string3);
 	}
 
 }
-
-
