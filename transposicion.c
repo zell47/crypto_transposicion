@@ -39,15 +39,23 @@ void main()
 		}
 		//for (j=0; j<per; j++) printf("v[%1d]=%d\n",j,v[j]); Mostrar Vector de Posicion
 		strcpy(string,string2);
+		//printf("%s\n",string);
+		//printf("Ancho %d Per %d",ancho,per);
 		while (i<ancho){
 			pos=0;
 			for (j=0; j<per; j++){
 				pos = v[j];
-				c = string[pos-1+i];
+				if(pos-1+i<ancho)
+					c = string[pos-1+i];
+				else
+					c=' ';
 				printf("%c", c);
 			}
 			i=i+per;
 		}
+		//string3[i]='\0';
+		//printf("%s\n",string2);
+		//puts(string3);
 	}
 	if (op==2){
 				printf("Letras a desencriptar:");
@@ -70,7 +78,10 @@ void main()
 					pos=0;
 					for (j=0; j<per; j++){
 						pos = v[j];
-						c = string[pos-1+i];
+						if(pos-1+i<ancho)
+							c = string[pos-1+i];
+						else
+							c=' ';
 						printf("%c", c);
 					}
 					i=i+per;
