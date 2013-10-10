@@ -1,5 +1,5 @@
 /*
- * transposicion.c
+ * transposicion.c github
  *
  *  Created on: 19/09/2013
  *      Author: jmorales
